@@ -15,6 +15,6 @@
     "gif": "extension.gif",
     "externaldependencies":[
         {"type": "css", "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"},
-        {"type": "js", "link": "https://maps.googleapis.com/maps/api/js?key=AIzaSyBTI0lAOQxS-ny-cceKs-FGeMHnmqP0Wcs"}
+        {"type": "js", "link": "https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KET>"}
     ]
 }
