@@ -1,3 +1,5 @@
+/// import * as Autodesk from "@types/forge-viewer";
+
 export class BaseExtension extends Autodesk.Viewing.Extension {
     constructor(viewer, options) {
         super(viewer, options);

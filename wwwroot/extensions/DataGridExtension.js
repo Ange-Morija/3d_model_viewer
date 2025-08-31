@@ -1,3 +1,5 @@
+/// import * as Autodesk from "@types/forge-viewer";
+
 import { BaseExtension } from './BaseExtension.js';
 import { DataGridPanel } from './DataGridPanel.js';
 

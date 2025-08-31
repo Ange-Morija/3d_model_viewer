@@ -1,3 +1,5 @@
+/// import * as Autodesk from "@types/forge-viewer";
+
 const DATAGRID_CONFIG = {
     requiredProps: ['name', 'Volume', 'Level'], // Which properties should be requested for each object
     columns: [ // Definition of individual grid columns (see http://tabulator.info for more details)

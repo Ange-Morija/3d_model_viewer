@@ -1,3 +1,6 @@
+/// import * as Autodesk from "@types/forge-viewer";
+/// import * as Chart from "@types/chart.js";
+
 import { BaseExtension } from './BaseExtension.js';
 import { HistogramPanel } from './HistogramPanel.js';
 

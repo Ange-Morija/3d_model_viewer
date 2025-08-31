@@ -1,3 +1,5 @@
+/// import * as Autodesk from "@types/forge-viewer";
+
 export class SummaryPanel extends Autodesk.Viewing.UI.PropertyPanel {
     constructor(extension, id, title) {
         super(extension.viewer.container, id, title);
@@ -13,24 +15,22 @@ export class SummaryPanel extends Autodesk.Viewing.UI.PropertyPanel {
                     count: aggregate.count + 1,
                     sum: aggregate.sum + value,
                     min: Math.min(aggregate.min, value),
-                    max: Math.max(aggregate.max, value),
-                    units: property.units,
-                    precision: property.precision
+                    max: Math.max(aggregate.max, value)
                 };
             };
-            const { sum, count, min, max, units, precision } = await this.aggregatePropertyValues(model, dbids, propName, aggregateFunc, initialValue);
+            const { sum, count, min, max } = await this.aggregatePropertyValues(model, dbids, propName, aggregateFunc, initialValue);
             if (count > 0) {
                 const category = propName;
                 this.addProperty('Count', count, category);
-                this.addProperty('Sum', this.toDisplayUnits(sum, units, precision), category);
-                this.addProperty('Avg', this.toDisplayUnits((sum / count), units, precision), category);
-                this.addProperty('Min', this.toDisplayUnits(min, units, precision), category);
-                this.addProperty('Max', this.toDisplayUnits(max, units, precision), category);
+                this.addProperty('Sum', sum.toFixed(2), category);
+                this.addProperty('Avg', (sum / count).toFixed(2), category);
+                this.addProperty('Min', min.toFixed(2), category);
+                this.addProperty('Max', max.toFixed(2), category);
             }
         }
     }
 
-    async aggregatePropertyValues(model, dbids, propertyName, aggregateFunc, initialValue = 0) {
+     async aggregatePropertyValues(model, dbids, propertyName, aggregateFunc, initialValue = 0) {
         return new Promise(function (resolve, reject) {
             let aggregatedValue = initialValue;
             model.getBulkProperties(dbids, { propFilter: [propertyName] }, function (results) {
@@ -43,9 +43,5 @@ export class SummaryPanel extends Autodesk.Viewing.UI.PropertyPanel {
                 resolve(aggregatedValue);
             }, reject);
         });
-    }
-
-    toDisplayUnits(value, units, precision) {
-        return Autodesk.Viewing.Private.formatValueWithUnits(value, units, 3, precision);
     }
 }

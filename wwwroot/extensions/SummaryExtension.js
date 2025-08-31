@@ -1,6 +1,10 @@
+/// import * as Autodesk from "@types/forge-viewer";
+
 import { BaseExtension } from './BaseExtension.js';
 import { SummaryPanel } from './SummaryPanel.js';
 
+// For now, the names of properties we want to compute the aggregates for are hard-coded.
+// In future these could be retrieved via the extension `options`, or perhaps set in the UI.
 const SUMMARY_PROPS = ['Length', 'Area', 'Volume', 'Density', 'Mass', 'Price'];
 
 class SummaryExtension extends BaseExtension {
