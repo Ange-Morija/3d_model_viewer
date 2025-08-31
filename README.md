@@ -71,7 +71,7 @@ The BIM Viewer provides an interactive 3D visualization of building models using
 
 1. **Clone the repository:**
    ```sh
-   git clone <repository-url>
+   git clone <https://github.com/Ange-Morija/digital_twin.git>
    cd <project-directory>
    ```
 
@@ -125,4 +125,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For questions or support, please contact the project maintainer at
+For questions or support, please contact the project maintainer at kouamenananangemorija@gmail.com
+
+## Example
+
+![alt text](image.png)
